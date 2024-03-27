@@ -9,7 +9,7 @@ blackjack_multiplier = 1.5
 
 
 # Initialize player, dealer, deck and game play. Cache these variables
-@st.cache(allow_output_mutation=True, suppress_st_warning=True)
+@st.cache_resource()
 def start_game():
     game_deck = Deck(number_of_decks)
     dealer = Dealer()
