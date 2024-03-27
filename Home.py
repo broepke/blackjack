@@ -5,7 +5,7 @@ Streamlit main app
 import streamlit as st
 
 
-st.set_page_config(page_title="Deadpool", page_icon=":spades:")
+st.set_page_config(page_title="Ace of Spades", page_icon=":spades:")
 
 
 # --- Main Application Code
