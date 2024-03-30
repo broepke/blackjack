@@ -20,9 +20,9 @@ def start_game():
 
 game_deck, dealer, player, game_play = start_game()
 
-st.title('BlackJack Simulator')
+st.title("BlackJack Simulator")
 
-if st.button('New hand?'):
+if st.button("New hand?"):
     game_play.deal_in()
 
 
@@ -36,19 +36,19 @@ dealer_images = st.empty()
 result = st.empty()
 
 
-if 'Hit' in player.possible_actions:
-    if player_hit_option.button('Hit'):
+if "Hit" in player.possible_actions:
+    if player_hit_option.button("Hit"):
         player.player_hit(game_deck, game_play)
-        if 'Hit' not in player.possible_actions:
+        if "Hit" not in player.possible_actions:
             player_hit_option.empty()
-if 'Double Down' in player.possible_actions:
-    if player_double_down_option.button('Double Down'):
+if "Double Down" in player.possible_actions:
+    if player_double_down_option.button("Double Down"):
         player.double_down(game_deck, game_play)
         player_double_down_option.empty()
         player_hit_option.empty()
         player_stand_option.empty()
-if 'Stand' in player.possible_actions:
-    if player_stand_option.button('Stand'):
+if "Stand" in player.possible_actions:
+    if player_stand_option.button("Stand"):
         player.stand(game_play)
         player_hit_option.empty()
         player_double_down_option.empty()
@@ -57,9 +57,11 @@ if 'Stand' in player.possible_actions:
 
 game_play.update()
 player_stats.write(player)
-player_images.image([Image.open(card.image_location)
-                     for card in player.cards], width=100)
+player_images.image(
+    [Image.open(card.image_location) for card in player.cards], width=100
+)
 dealer_stats.write(dealer)
-dealer_images.image([Image.open(card.image_location)
-                     for card in dealer.cards], width=100)
+dealer_images.image(
+    [Image.open(card.image_location) for card in dealer.cards], width=100
+)
 result.write(game_play)
